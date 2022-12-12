@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import Form from 'react-bootstrap/Form';
+import { Button, Form} from "react-bootstrap";
 import './App.css'
 
 const Nav = () => {
@@ -72,17 +72,28 @@ if(username == "user123" && password == "password123"){
 
 function Signup(props) {
   return (
-    <div className="login-page">
+    <div className="Signup-page">
       <div>
         {/* <form onSubmit={(e) => handleLogin(e)}>
           <label htmlFor="user">First Name</label>
           <input onChange={(e) => setUsername(e.target.value)}/>
         </form> */}
         <Form onSubmit={(e) => handleLogin(e)}>
-      <Form.Group className="mb-3" controlId="formUsername">
-        <Form.Label>Username</Form.Label>
-        <Form.Control type="text" placeholder="Enter Username" onChange={(e) => setUsername(e.target.value)} />
+      <Form.Group className="mb-3" controlId="formSignup">
+        <Form.Label>Sign Up</Form.Label>
+        <Form.Control type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
       </Form.Group>
+      <Form.Group className="mb-3" controlId="formPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control 
+        onChange={(e) => setPassword(e.target.value)}
+        type="password"
+        name="password"
+        placeholder="Enter your password"/>
+        </Form.Group>
+        <div className="d-grid gap-2">
+          <Button type="submit">Sign Up</Button>
+        </div>
       </Form>
         </div>
         </div>
@@ -117,7 +128,7 @@ const [showLogin, setShowLogin] = useState(true);
               :
               <Signup isSignedUp ={showLogin} setShowLogin={setShowLogin} />
           }
-          <button onClick={()=> setShowLogin((previousState) => !previousState )}>Login Here</button>
+          <button onClick={()=> setShowLogin((previousState) => !previousState )}>Click Me</button>
           </>
     }</div>
     )
