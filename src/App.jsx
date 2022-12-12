@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import { Button, Form} from "react-bootstrap";
+import { Button, Form, Alert} from "react-bootstrap";
 import './App.css'
 
 const Nav = () => {
@@ -58,13 +58,13 @@ if(username == "user123" && password == "password123"){
 
 
   return (
-    <div>
-      {error ? <div>That was the wrong username and/or password</div>: <div>Welcome to the app</div>
+   <div>   {error ? <Alert variant="warning">That was the wrong username and/or password</Alert>: <div>Welcome to the app</div>
     }
       <form onSubmit={(e) => handleLogin(e)}>
         <input onChange={(e) =>setUsername(e.target.value)} type="text" name="username"/>
         <input onChange={(e) =>setPassword(e.target.value)} type="password" name="password"/>
-        <input type="submit" value="Already a User" />
+        {/* <input type="submit" value="Login" /> */}
+        <Button type="submit">Login</Button>
       </form>
     </div>
   )
@@ -92,7 +92,7 @@ function Signup(props) {
         placeholder="Enter your password"/>
         </Form.Group>
         <div className="d-grid gap-2">
-          <Button type="submit">Sign Up</Button>
+          <Button type="submit">Sign In</Button>
         </div>
       </Form>
         </div>
@@ -128,7 +128,7 @@ const [showLogin, setShowLogin] = useState(true);
               :
               <Signup isSignedUp ={showLogin} setShowLogin={setShowLogin} />
           }
-          <button onClick={()=> setShowLogin((previousState) => !previousState )}>New User</button>
+          <button onClick={()=> setShowLogin((previousState) => !previousState )}>Toggle Login</button>
           </>
     }</div>
     )
