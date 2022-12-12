@@ -64,7 +64,7 @@ if(username == "user123" && password == "password123"){
       <form onSubmit={(e) => handleLogin(e)}>
         <input onChange={(e) =>setUsername(e.target.value)} type="text" name="username"/>
         <input onChange={(e) =>setPassword(e.target.value)} type="password" name="password"/>
-        <input type="submit" value="Login" />
+        <input type="submit" value="Already a User" />
       </form>
     </div>
   )
@@ -128,7 +128,7 @@ const [showLogin, setShowLogin] = useState(true);
               :
               <Signup isSignedUp ={showLogin} setShowLogin={setShowLogin} />
           }
-          <button onClick={()=> setShowLogin((previousState) => !previousState )}>Click Me</button>
+          <button onClick={()=> setShowLogin((previousState) => !previousState )}>New User</button>
           </>
     }</div>
     )
